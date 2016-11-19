@@ -1,6 +1,6 @@
 # The simplest Alfresco client using Google Material Design and Ajax
 
-This Alfresco javascript client for REST APIs is a simple client enabling users to use the Alfresco REST API using a friendly interface. The client is developed to executed an AJAX call in GET, POST, PUT or DELETE. The source code is written in HTML and uses the Google Material Design as stylesheet. All the source code is available into a single file called "index.html".
+This Alfresco javascript client for REST APIs is a simple client enabling users to use the Alfresco REST API using a friendly interface. The client is developed to executed an AJAX call in GET, POST, PUT or DELETE (https://en.wikipedia.org/wiki/AJAX). The source code is written in HTML (https://en.wikipedia.org/wiki/HTML) and uses the Google Material Design (https://en.wikipedia.org/wiki/Material_Design) as stylesheet. All the source code is available into a single file called `index.html`.
 
 Nothing is simpler than this...
 
