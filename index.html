@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link href="//cdn.muicss.com/mui-0.9.4/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+       .mui-container-fluid {
+         background: url('images/background.png') top center no-repeat;
+         background-size: 100%;
+       }
+       .mui-panel-top-separator {
+         margin-top: 150px;
+       }
+    </style>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="//cdn.muicss.com/mui-0.9.4/js/mui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      $(function() {
+
+        // Submission event.
+        $('#submit-button').click(function(e) {
+
+          e.preventDefault();
+
+          // Values.
+          var alfrescoLogin        = $("#alfresco-rest-login").val();
+          var alfrescoPassword     = $("#alfresco-rest-password").val();
+          var alfrescoRestMethod   = $("#alfresco-rest-method").val();
+          var alfrescoRestCopyBody = $("#alfresco-rest-copy-body").val();
+          var alfrescoRestUrl      = $("#alfresco-rest-url").val();
+
+          // Checks.
+          if ( !alfrescoLogin) {
+            alert("Alfresco login cannot be empty.");
+          }
+          else if ( !alfrescoPassword) {
+            alert("Alfresco password cannot be empty.");
+          }
+          else if ( !alfrescoRestMethod) {
+            alert("Alfresco RESTFul method cannot be empty.");
+          }
+          else if ( !alfrescoRestUrl) {
+            alert("Alfresco RESTFul URL cannot be empty.");
+          }
+          else {
+
+            $.ajax({
+              username: alfrescoLogin,
+              password: alfrescoPassword,
+              type: alfrescoRestMethod,
+              data: alfrescoRestCopyBody,
+              url: alfrescoRestUrl,
+              success: function(result,status,xhr) {
+                $('#alfresco-result').html("<p>Status: " + status +"</p>");
+                $('#alfresco-result').append(JSON.stringify(result, null, "\t"));
+              },
+              error: function(xhr,status,error) {
+                $('#alfresco-result').html("ERROR: " + error);
+              }
+            });
+
+          }
+        });
+
+        // Resetting event.
+        $('#reset-button').click(function(e) {
+          e.preventDefault();
+          $('#alfresco-result').html("Press 'Go' to view the result here.");
+        });
+
+        // API-Explorer link.
+        $('#api-explorer-button').click(function(e) {
+          e.preventDefault();
+          window.open("/api-explorer-1.1","explorer");
+        });
+
+      });
+
+   </script>
+
+  </head>
+  <body>
+
+    <div class="mui-container-fluid">
+
+      <!-- Form -->
+      <div class="mui-row">
+        <div class="mui-col-md-1">&nbsp;</div>
+        <div class="mui-col-md-10">
+          <div class="mui-panel-top-separator"></div>
+          <div class="mui-panel">
+            <form>
+              <legend>Alfresco javascript client for REST API</legend>
+              <div class="mui-textfield">
+                <input type="text" id="alfresco-rest-login" value="admin">
+                <label>Login</label>
+              </div>
+              <div class="mui-textfield">
+                <input type="text" id="alfresco-rest-password" value="admin">
+                <label>Password</label>
+              </div>
+              <div class="mui-select">
+                <select id="alfresco-rest-method">
+                  <option value="delete" selected>DELETE</option>
+                  <option value="get" selected>GET</option>
+                  <option value="post" >POST</option>
+                  <option value="put" >PUT</option>
+                </select>
+                <label>RESTFul method</label>
+              </div>
+              <div class="mui-textfield">
+                <input type="text" id="alfresco-rest-copy-body" value="">
+                <label>RESTFul copyBody</label>
+              </div>
+              <div class="mui-textfield">
+                <input type="text" id="alfresco-rest-url" value="http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/nodes/-root-/children">
+                <label>RESTFul url</label>
+              </div>
+              <button id="submit-button"       type="submit" class="mui-btn mui-btn--primary">Go</button>
+              <button id="reset-button"        type="submit" class="mui-btn mui-btn--primary">Reset</button>
+              <button id="api-explorer-button" type="submit" class="mui-btn mui-btn--primary">API Explorer</button>
+            </form>
+          </div>
+        </div>
+        <div class="mui-col-md-1">&nbsp;</div>
+      </div>
+
+      <!-- Result -->
+      <div class="mui-row">
+        <div class="mui-col-md-1">&nbsp;</div>
+        <div class="mui-col-md-10">
+          <div class="mui-panel">
+            <p><pre id="alfresco-result">Press 'Go' to view the result here.</pre></p>
+          </div>
+        </div>
+        <div class="mui-col-md-1">&nbsp;</div>
+      </div>
+
+    </div>
+ 
+  </body>
+</html>
