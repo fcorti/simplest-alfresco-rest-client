@@ -1,12 +1,14 @@
 # The simplest Alfresco client using Google Material Design and Ajax
 
-This Alfresco javascript client for REST APIs is a simple client enabling users to use the Alfresco REST API using a friendly interface. The client is developed to executed an AJAX call in GET, POST, PUT or DELETE (https://en.wikipedia.org/wiki/AJAX). The source code is written in HTML (https://en.wikipedia.org/wiki/HTML) and uses the Google Material Design (https://en.wikipedia.org/wiki/Material_Design) as stylesheet. All the source code is available into a single file called `index.html`.
+This Alfresco javascript client for REST APIs is a simple client enabling users to use the Alfresco REST API using a friendly interface. The client is developed to executed an [AJAX](https://en.wikipedia.org/wiki/AJAX) call in GET, POST, PUT or DELETE. The source code is written in [HTML](https://en.wikipedia.org/wiki/HTML) and uses the [Google Material Design](https://en.wikipedia.org/wiki/Material_Design) as stylesheet. All the source code is available into a single file called `index.html`.
 
 Nothing is simpler than this...
 
 ## Prerequisites
 
-Before installing the Alfresco javascript client for REST API, you have to be sure to have an Alfresco installation installed into your environment. Suggested but not mandatory, is the installation of the Alfresco API Explorer.
+Before installing the Alfresco javascript client for [REST API](http://docs.alfresco.com/5.1/pra/1/topics/pra-welcome-aara.html), you have to be sure to have an Alfresco instance installed into your environment. Suggested but not mandatory, is the installation of the [Alfresco API Explorer](http://docs.alfresco.com/5.1/pra/1/concepts/pra-rest-api-explorer.html).
+
+Want to understand how to complete this task? Take a look at the Alfresco setup paragraph of the post [here](http://fcorti.com/2016/09/05/alfresco-development-framework-in-action/#alfresco_setup) (you can avoid to install the Enabling CORS module).
 
 ## How to install the client
 
